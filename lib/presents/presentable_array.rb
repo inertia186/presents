@@ -24,7 +24,7 @@ class PresentableArray
   # Returns each presenter for the model.
   def present_each(&block)
     @values.each do |value|
-      cls ||= "#{value.class}Presenter".constantize
+      cls = "#{value.class}Presenter".constantize
       presenter = cls.new(value, self)
       yield presenter if block_given?
     end
